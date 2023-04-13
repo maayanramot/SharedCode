@@ -9,7 +9,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Loby />}></Route>
-          <Route path="/code" element={<CodePage />}></Route>
+          <Route path="/code/:id" element={<CodePage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

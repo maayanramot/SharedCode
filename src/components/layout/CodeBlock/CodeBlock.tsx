@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CodeBlock.css'
 import hljs from 'highlight.js'
 import { useEffect } from 'react'
@@ -20,6 +20,7 @@ const markdown = `
 `
 
 const CodeBlock: React.FC = () => {
+
   useEffect(() => {
     hljs.highlightAll()
   }, [])
