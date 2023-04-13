@@ -8,6 +8,7 @@ const CodePageHero: React.FC = () => {
       <div className="card-page-headline">
         <h1>Title</h1>
         <h2>Read only mode</h2>
+        <h2>Read only mode</h2>
       </div>
       <CodeBlock />
     </div>
