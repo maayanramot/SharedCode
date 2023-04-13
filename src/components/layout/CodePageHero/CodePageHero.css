@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.code-page-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-page-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 60vw;
+  margin-top: 7vh;
+}
+
+.card-page-headline > h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 40px;
+  margin: 0;
+}
+
+.card-page-headline > h2 {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+}

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.loby-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 7vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.loby-hero > h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  flex-wrap: wrap;
+  width: 50vw;
+  height: 70vh;
+}
+
+@media (max-width: 414px) {
+  .cards-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 5vh;
+  }
+}
