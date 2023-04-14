@@ -4,6 +4,7 @@ import Loby from './components/pages/Loby/Loby'
 import CodePage from './components/pages/CodePage/CodePage'
 
 const App: React.FC = () => {
+
   return (
     <>
       <BrowserRouter>

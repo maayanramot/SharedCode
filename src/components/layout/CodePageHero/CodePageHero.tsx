@@ -15,6 +15,17 @@ const CodePageHero: React.FC = () => {
 
   const currentCode = codes.find((code: ICode) => code._id === id)
 
+  const firstVisit = localStorage.getItem('visited')
+
+  useEffect(() => {
+    if (firstVisit == null) {
+      setIsMentor(true)
+      localStorage.setItem('visited', '1')
+    } else {
+      setIsMentor(false)
+    }
+  }, [])
+
   return (
     <div className="code-page-hero">
       <div className="card-page-headline">
@@ -23,7 +34,7 @@ const CodePageHero: React.FC = () => {
         {!isMentor && <h2>Editor</h2>}
       </div>
       <CodeBlock />
-      {!isMentor && <Editor/>}
+      {!isMentor && <Editor />}
     </div>
   )
 }
