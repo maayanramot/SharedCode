@@ -7,6 +7,7 @@ export interface ICodes {
 }
 
 export interface ICode {
+    _id: string
     title: string
     content: string
 }

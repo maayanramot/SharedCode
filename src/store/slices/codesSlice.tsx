@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ICode } from '../services/interface'
+import { ICode } from '../../services/interface'
 
 const data = async () => {
   try {
