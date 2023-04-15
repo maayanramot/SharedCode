@@ -1,34 +1,57 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import './CodeBlock.css'
-import hljs from 'highlight.js'
-import { useEffect } from 'react'
-import { marked } from 'marked'
-import 'highlight.js/styles/github.css'
 import { useParams } from 'react-router-dom'
 import { ICode, Istore } from '../../../services/interface'
+import Editor from '../Editor/Editor'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import UserChanges from '../UserChanges/UserChanges'
 
-const CodeBlock: React.FC = () => {
+interface ICodeBlock {
+  editMode: boolean
+}
+
+const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
   const { id } = useParams()
 
   const codes = useSelector((state: Istore) => state.codes.value)
 
   const currentCode = codes.find((code: ICode) => code._id === id)
 
-  const markdown = `
-\`\`\`typescript
-  ${currentCode?.content}
-\`\`\`
-`
+  const [codeString, setCodeString] = useState(`${currentCode?.content}`)
 
-  useEffect(() => {
-    hljs.highlightAll()
-  }, [])
+  const [s, setS] = useState('')
+  console.log(s,"s");
+  
 
   return (
-    <div className="code-block-content">
-      <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
-    </div>
+    <>
+      {editMode ? (
+        <>
+          <div className="editor-container">
+            <div className="code-block-content">
+              <SyntaxHighlighter
+                language="javascript"
+                style={docco}
+                customStyle={{ backgroundColor: '#fff' }}
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+            <UserChanges userCode={s}/>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="editor-container">
+            <Editor
+              currentCode={currentCode?.content} setS={setS}
+            />
+          </div>
+        </>
+      )}
+    </>
   )
 }
 

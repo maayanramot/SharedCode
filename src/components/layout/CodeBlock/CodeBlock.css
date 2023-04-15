@@ -1,11 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 .code-block-content {
-  width: 60vw;
-  min-height: 35vh;
-  max-height: 35vh;
+  width: 30vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   overflow: auto;
   border: 0.5px solid #00000052;
   border-radius: 4px;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.17);
+  padding-left: 15px;
+}
+
+.editor-container {
+  display: flex;
+  gap:3vw;
+}
+
+.editor-mode {
+  width: 30vw;
+  height: 58vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border: 0.5px solid #00000052;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.17);
+  padding-left: 15px;
+  padding-top: 10px;
 }

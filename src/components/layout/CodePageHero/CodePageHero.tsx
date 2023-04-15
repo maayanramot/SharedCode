@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import './CodePageHero.css'
 import CodeBlock from '../CodeBlock/CodeBlock'
-import Editor from '../Editor/Editor'
 import { ICode, Istore } from '../../../services/interface'
 
 const CodePageHero: React.FC = () => {
@@ -33,8 +32,7 @@ const CodePageHero: React.FC = () => {
         {isMentor && <h2>Read only mode</h2>}
         {!isMentor && <h2>Editor</h2>}
       </div>
-      <CodeBlock />
-      {!isMentor && <Editor />}
+      <CodeBlock editMode={isMentor}/>
     </div>
   )
 }
