@@ -46,7 +46,7 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
         <>
           <div className="editor-container">
             <Editor
-              currentCode={currentCode?.missingCode} setS={setS}
+              currentCode={currentCode?.missingCode} setS={setS} compliteCode={currentCode?.code}
             />
           </div>
         </>

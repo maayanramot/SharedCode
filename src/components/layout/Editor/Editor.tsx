@@ -8,10 +8,11 @@ const socket = io.connect('http://localhost:8000')
 
 interface IEditor {
   currentCode: string | undefined
-  setS: (s:string) => void
+  compliteCode: string | undefined
+  setS: (s: string) => void
 }
 
-const Editor: React.FC<IEditor> = ({ currentCode,setS }) => {
+const Editor: React.FC<IEditor> = ({ currentCode, setS, compliteCode }) => {
   const [message, setMessage] = useState('')
   const [messageReceived, setMessageReceived] = useState('')
 
