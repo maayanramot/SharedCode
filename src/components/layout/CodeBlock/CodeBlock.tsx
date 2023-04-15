@@ -19,7 +19,7 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
 
   const currentCode = codes.find((code: ICode) => code._id === id)
 
-  const [codeString, setCodeString] = useState(`${currentCode?.content}`)
+  const [codeString, setCodeString] = useState(`${currentCode?.missingCode}`)
 
   const [s, setS] = useState('')
   console.log(s,"s");
@@ -46,7 +46,7 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
         <>
           <div className="editor-container">
             <Editor
-              currentCode={currentCode?.content} setS={setS}
+              currentCode={currentCode?.missingCode} setS={setS}
             />
           </div>
         </>
