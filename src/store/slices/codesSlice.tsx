@@ -3,7 +3,7 @@ import { ICode } from '../../services/interface'
 
 const data = async () => {
   try {
-    const response = await fetch('http://localhost:8000/codeblocks', {
+    const response = await fetch('https://sharecode-server.onrender.com/codeblocks', {
       method: 'GET',
     })
     const data = await response.json()
