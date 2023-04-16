@@ -13,7 +13,7 @@ interface IEditor {
   setUserText: (s: string) => void;
 }
 
-const socket = io.connect('http://localhost:8000');
+const socket = io.connect('https://sharecode-server.onrender.com');
 
 const Editor: React.FC<IEditor> = ({ currentCode, setUserText, compliteCode }) => {
 
@@ -31,7 +31,7 @@ const Editor: React.FC<IEditor> = ({ currentCode, setUserText, compliteCode }) =
     };
 
     try {
-      const response = await fetch('http://localhost:8000/codeblocks', {
+      const response = await fetch('https://sharecode-server.onrender.com/codeblocks', {
         method: 'POST',
         body: JSON.stringify(checkCode),
         headers: {
