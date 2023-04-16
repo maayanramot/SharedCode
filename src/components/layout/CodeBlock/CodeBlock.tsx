@@ -22,8 +22,6 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
   const [codeString, setCodeString] = useState(`${currentCode?.missingCode}`)
 
   const [s, setS] = useState('')
-  console.log(s,"s");
-  
 
   return (
     <>
@@ -39,14 +37,16 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
                 {codeString}
               </SyntaxHighlighter>
             </div>
-            <UserChanges userCode={s}/>
+            <UserChanges userCode={s} />
           </div>
         </>
       ) : (
         <>
           <div className="editor-container">
             <Editor
-              currentCode={currentCode?.missingCode} setS={setS} compliteCode={currentCode?.code}
+              currentCode={currentCode?.missingCode}
+              setS={setS}
+              compliteCode={currentCode?.code}
             />
           </div>
         </>
