@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+}
+
+.editor > textarea {
+  padding-top: 10px;
+  padding-left: 15px;
+  width: 30vw;
+  height: 58vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border: 0.5px solid #00000052;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.17);
+
+}
+
+.editor > textarea:focus {
+  outline: none;
+}
+
+.editor > button {
+  background-color: #ffffff;
+  border: 1px solid #00000052;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.880rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-decoration: none #dadbdd solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 15vw;
+}
+
+.editor > button:hover {
+  background-color: rgb(249, 250, 251);
+}
+
+.editor > button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.editor > button:focus-visible {
+  box-shadow: none;
+}
