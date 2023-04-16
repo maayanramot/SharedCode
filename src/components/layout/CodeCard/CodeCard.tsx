@@ -1,15 +1,15 @@
 import React from 'react'
 import './CodeCard.css'
+
 import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { ICode, Istore } from '../../../services/interface'
 
 const CodeCard: React.FC = () => {
-
-  const codes = useSelector((state: Istore) => state.codes.value)
-  
   const navigate = useNavigate()
+
+  const codes = useSelector((state: Istore) => state.codes.value)  
 
   const handleClick = (id: string) => {
     navigate(`/code/${id}`)

@@ -1,5 +1,6 @@
 import React from 'react'
 import './SmilePopUp.css'
+
 import smile from '../../../assets/icons/smile.svg'
 
 const SmilePopUp: React.FC = () => {

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import './CodeBlock.css'
-import { useParams } from 'react-router-dom'
 import { ICode, Istore } from '../../../services/interface'
-import Editor from '../Editor/Editor'
+import './CodeBlock.css'
+
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+
+import Editor from '../Editor/Editor'
 import UserChanges from '../UserChanges/UserChanges'
 
 interface ICodeBlock {
@@ -16,12 +19,10 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
   const { id } = useParams()
 
   const codes = useSelector((state: Istore) => state.codes.value)
-
   const currentCode = codes.find((code: ICode) => code._id === id)
 
-  const [codeString, setCodeString] = useState(`${currentCode?.missingCode}`)
-
-  const [s, setS] = useState('')
+  const codeString = `${currentCode?.missingCode}`
+  const [userText, setUserText] = useState('')
 
   return (
     <>
@@ -37,7 +38,7 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
                 {codeString}
               </SyntaxHighlighter>
             </div>
-            <UserChanges userCode={s} />
+            <UserChanges userCode={userText} />
           </div>
         </>
       ) : (
@@ -45,7 +46,7 @@ const CodeBlock: React.FC<ICodeBlock> = ({ editMode }) => {
           <div className="editor-container">
             <Editor
               currentCode={currentCode?.missingCode}
-              setS={setS}
+              setUserText={setUserText}
               compliteCode={currentCode?.code}
             />
           </div>

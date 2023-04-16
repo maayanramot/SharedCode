@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Editor.css';
+
 import * as io from 'socket.io-client';
+
 import UserChanges from '../UserChanges/UserChanges';
 import SmilePopUp from '../SmilePopUp/SmilePopUp';
 
-const socket = io.connect('http://localhost:8000');
 
 interface IEditor {
   currentCode: string | undefined;
   compliteCode: string | undefined;
-  setS: (s: string) => void;
+  setUserText: (s: string) => void;
 }
 
-const Editor: React.FC<IEditor> = ({ currentCode, setS, compliteCode }) => {
+const socket = io.connect('http://localhost:8000');
+
+const Editor: React.FC<IEditor> = ({ currentCode, setUserText, compliteCode }) => {
+
   const [message, setMessage] = useState('');
   const [messageReceived, setMessageReceived] = useState('');
   const [data, setData] = useState('');
@@ -46,17 +50,15 @@ const Editor: React.FC<IEditor> = ({ currentCode, setS, compliteCode }) => {
   useEffect(() => {
     socket.on('receive_message', (data) => {
       setMessageReceived(data.message);
-      setS(data.message);
+      setUserText(data.message);
     });
   }, [socket]);
 
   useEffect(() => {
-    // Function to set data to false after 5 seconds
     const timer = setTimeout(() => {
       setData('');
     }, 3000);
 
-    // Clean up the timer on unmount or when data changes
     return () => {
       clearTimeout(timer);
     };

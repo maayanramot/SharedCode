@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { ICode, Istore } from '../../../services/interface'
+import './CodePageHero.css'
+
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import './CodePageHero.css'
+
 import CodeBlock from '../CodeBlock/CodeBlock'
-import { ICode, Istore } from '../../../services/interface'
 
 const CodePageHero: React.FC = () => {
   const [isMentor, setIsMentor] = useState(false)
+  const firstVisit = localStorage.getItem('visited')
 
   const { id } = useParams()
-
   const codes = useSelector((state: Istore) => state.codes.value)
-
   const currentCode = codes.find((code: ICode) => code._id === id)
-
-  const firstVisit = localStorage.getItem('visited')
 
   useEffect(() => {
     if (firstVisit == null) {
